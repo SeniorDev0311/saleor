@@ -186,6 +186,9 @@ class SearchUpdateBaseSchedule(CustomSchedule):
 
 class page_search_update_schedule(SearchUpdateBaseSchedule):
     def __init__(self, initial_timedelta=60, nowfun=None, app=None):
+        # initial_timedelta defaults to 60 seconds, as referencing settings.py variables
+        # would require rebuilding the schedule. settings depends on this class instance,
+        # leading to a circular import if accessed directly.
         import_path = "saleor.core.schedules.initiated_page_search_update_schedule"
         super().__init__(import_path, initial_timedelta, nowfun, app)
 
@@ -203,6 +206,9 @@ class page_search_update_schedule(SearchUpdateBaseSchedule):
 
 class product_search_update_schedule(SearchUpdateBaseSchedule):
     def __init__(self, initial_timedelta=60, nowfun=None, app=None):
+        # initial_timedelta defaults to 60 seconds, as referencing settings.py variables
+        # would require rebuilding the schedule. settings depends on this class instance,
+        # leading to a circular import if accessed directly.
         import_path = "saleor.core.schedules.initiated_product_search_update_schedule"
         super().__init__(import_path, initial_timedelta, nowfun, app)
 
@@ -220,6 +226,9 @@ class product_search_update_schedule(SearchUpdateBaseSchedule):
 
 class gift_card_search_update_schedule(SearchUpdateBaseSchedule):
     def __init__(self, initial_timedelta=60, nowfun=None, app=None):
+        # initial_timedelta defaults to 60 seconds, as referencing settings.py variables
+        # would require rebuilding the schedule. settings depends on this class instance,
+        # leading to a circular import if accessed directly.
         import_path = "saleor.core.schedules.initiated_gift_card_search_update_schedule"
         super().__init__(import_path, initial_timedelta, nowfun, app)
 
